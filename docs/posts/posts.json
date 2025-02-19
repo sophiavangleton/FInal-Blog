@@ -14,7 +14,24 @@
     "contents": "\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
     "preview": "posts/2025-02-19-first-post/first-post_files/figure-html5/unnamed-chunk-2-1.png",
     "last_modified": "2025-02-19T15:41:25-08:00",
-    "input_file": "first-post.knit.md"
+    "input_file": {}
+  },
+  {
+    "path": "posts/2025-02-19-second-post/",
+    "title": "second-post",
+    "description": "Similar to my first data visualization, but I am looking only at scores from third and eighth graders who attained a score greater than or equal to 100.",
+    "author": [
+      {
+        "name": "Sophia Angleton",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2025-02-19",
+    "categories": [],
+    "contents": "\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+    "preview": "posts/2025-02-19-second-post/second-post_files/figure-html5/unnamed-chunk-2-1.png",
+    "last_modified": "2025-02-19T15:57:57-08:00",
+    "input_file": "second-post.knit.md"
   },
   {
     "path": "posts/welcome/",

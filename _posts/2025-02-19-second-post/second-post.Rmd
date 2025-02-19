@@ -1,0 +1,54 @@
+---
+title: "second-post"
+description: |
+  Similar to my first data visualization, but I am looking only at scores from third and eighth graders who attained a score greater than or equal to 100.
+author:
+  - name: Sophia Angleton
+    url: https://example.com/norajones
+date: 2025-02-19
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+```{r}
+#| include: False
+library(tidyverse)
+library(edld652)
+library(janitor)
+
+#set_key(1234, overwrite = T)
+
+get_documentation("EDFacts_math_achievement_lea_2010_2019")
+
+edu_math <- get_data("EDFacts_math_achievement_lea_2010_2019")
+
+edu_math <- clean_names(edu_math)
+
+
+theme_set(theme_minimal())
+```
+
+```{r}
+plot1 <- edu_math %>% 
+  filter(!is.na(ecd_mth03pctprof), ecd_mth03numvalid >= 100, ecd_mth03pctprof >= 100) %>% 
+  ggplot(aes(ecd_mth03numvalid, ecd_mth03pctprof)) +
+  geom_col() +
+  labs(title = 'Academic Acheivement by Financial Status', subtitle = 'Mathmatic Acheivement at The Third-grade level. Scores greater than/equal to 100', x = 'Economically Disadvantaged Students', y = "Percent scoring at or above proficiency level")
+plot1
+
+plot2 <- edu_math %>% 
+  filter(!is.na(ecd_mth08pctprof), ecd_mth08numvalid >= 100, ecd_mth08pctprof >= 100) %>% 
+  ggplot(aes(ecd_mth08numvalid, ecd_mth08pctprof)) +
+  geom_col() +
+  labs(title = 'Academic Acheivement by Financial Status', subtitle = 'Mathmatic Acheivement at The Eighth-grade level. Scores greater than/equal to 100', x = 'Economically Disadvantaged Students', y = "Percent scoring at or above proficiency level")
+plot2
+```
+
+
