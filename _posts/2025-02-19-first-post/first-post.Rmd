@@ -1,0 +1,55 @@
+---
+title: "first-post"
+description: |
+  A short description of the post.
+author:
+  - name: Sophia Angleton
+    url: https://example.com/norajones
+date: 2025-02-19
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+I will use the "EDFacts_math_achievement_lea_2010_2019" to make my data visualizations on a dashboard format. I am interested in this dataset becuase it centralizes data provided by LEA or the local education agency. I want to focus on the academic acheivement in mathmatics becuase I feel like I can get a better understanding of performance trends by looking at just one educational area.
+
+
+
+```{r}
+#| include: False
+library(tidyverse)
+library(edld652)
+library(janitor)
+
+#set_key(1234, overwrite = T)
+
+get_documentation("EDFacts_math_achievement_lea_2010_2019")
+
+edu_math <- get_data("EDFacts_math_achievement_lea_2010_2019")
+
+edu_math <- clean_names(edu_math)
+
+theme_set(theme_minimal())
+```
+
+```{r}
+plot1 <- edu_math %>% 
+  filter(!is.na(ecd_mth03pctprof)) %>% 
+  ggplot(aes(ecd_mth03numvalid, ecd_mth03pctprof)) +
+  geom_col() +
+  labs(title = 'Academic Acheivement by Financial Status', subtitle = 'Mathmatic Acheivement at The Third-grade level', x = 'Economically Disadvantaged Students', y = "Percent scoring at or above proficiency level")
+plot1
+
+plot2 <- edu_math %>% 
+  filter(!is.na(ecd_mth08pctprof)) %>% 
+  ggplot(aes(ecd_mth08numvalid, ecd_mth08pctprof)) +
+  geom_col() +
+  labs(title = 'Academic Acheivement by Financial Status', subtitle = 'Mathmatic Acheivement at The Eighth-grade level', x = 'Economically Disadvantaged Students', y = "Percent scoring at or above proficiency level")
+plot2
+```
+

@@ -1,5 +1,22 @@
 [
   {
+    "path": "posts/2025-02-19-first-post/",
+    "title": "first-post",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Sophia Angleton",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2025-02-19",
+    "categories": [],
+    "contents": "\r\nI will use the “EDFacts_math_achievement_lea_2010_2019” to make my data visualizations on a dashboard format. I am interested in this dataset becuase it centralizes data provided by LEA or the local education agency. I want to focus on the academic acheivement in mathmatics becuase I feel like I can get a better understanding of performance trends by looking at just one educational area.\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+    "preview": "posts/2025-02-19-first-post/first-post_files/figure-html5/unnamed-chunk-2-1.png",
+    "last_modified": "2025-02-19T15:37:38-08:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/welcome/",
     "title": "Data Visualization",
     "description": "Educational Data Science: Data Visualiztion",
