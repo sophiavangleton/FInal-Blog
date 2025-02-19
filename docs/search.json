@@ -1,0 +1,20 @@
+{
+  "articles": [
+    {
+      "path": "about.html",
+      "title": "About this blog",
+      "description": "This is the final project in EDLD 652. There are several data visualization located here. ",
+      "author": [],
+      "contents": "\r\n\r\n\r\n\r\n",
+      "last_modified": "2025-02-19T15:17:30-08:00"
+    },
+    {
+      "path": "index.html",
+      "title": "My Blog",
+      "author": [],
+      "contents": "\r\n\r\n\r\n\r\n",
+      "last_modified": "2025-02-19T15:17:31-08:00"
+    }
+  ],
+  "collections": ["posts/posts.json"]
+}

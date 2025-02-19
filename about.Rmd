@@ -1,0 +1,9 @@
+---
+title: "About this blog"
+description: |
+  This is the final project in EDLD 652. There are several data visualization located here. 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```

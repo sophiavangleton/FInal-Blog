@@ -1,0 +1,19 @@
+[
+  {
+    "path": "posts/welcome/",
+    "title": "Data Visualization",
+    "description": "Educational Data Science: Data Visualiztion",
+    "author": [
+      {
+        "name": "Sophia Angleton",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2025-02-19",
+    "categories": [],
+    "contents": "\r\n\r\n\r\n\r\n",
+    "preview": {},
+    "last_modified": "2025-02-19T15:16:30-08:00",
+    "input_file": {}
+  }
+]
