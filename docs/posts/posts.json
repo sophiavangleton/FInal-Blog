@@ -2,7 +2,7 @@
   {
     "path": "posts/2025-02-19-first-post/",
     "title": "first-post",
-    "description": "A short description of the post.",
+    "description": "In this I am interested in my first research question, I want to compare (ECD) or economically disadvantaged students to (ALL) all students and additionally I can compare by grade. Here I will compare the lowest and highest grade (03 and 08) that is listed.",
     "author": [
       {
         "name": "Sophia Angleton",
@@ -11,10 +11,10 @@
     ],
     "date": "2025-02-19",
     "categories": [],
-    "contents": "\r\nI will use the “EDFacts_math_achievement_lea_2010_2019” to make my data visualizations on a dashboard format. I am interested in this dataset becuase it centralizes data provided by LEA or the local education agency. I want to focus on the academic acheivement in mathmatics becuase I feel like I can get a better understanding of performance trends by looking at just one educational area.\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+    "contents": "\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
     "preview": "posts/2025-02-19-first-post/first-post_files/figure-html5/unnamed-chunk-2-1.png",
-    "last_modified": "2025-02-19T15:37:38-08:00",
-    "input_file": {}
+    "last_modified": "2025-02-19T15:41:25-08:00",
+    "input_file": "first-post.knit.md"
   },
   {
     "path": "posts/welcome/",

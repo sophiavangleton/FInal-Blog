@@ -1,7 +1,7 @@
 ---
 title: "first-post"
 description: |
-  A short description of the post.
+  In this I am interested in my first research question, I want to compare (ECD) or economically disadvantaged students to (ALL) all students and additionally I can compare by grade. Here I will compare the lowest and highest grade (03 and 08) that is listed.
 author:
   - name: Sophia Angleton
     url: https://example.com/norajones
@@ -16,7 +16,6 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-I will use the "EDFacts_math_achievement_lea_2010_2019" to make my data visualizations on a dashboard format. I am interested in this dataset becuase it centralizes data provided by LEA or the local education agency. I want to focus on the academic acheivement in mathmatics becuase I feel like I can get a better understanding of performance trends by looking at just one educational area.
 
 
 
