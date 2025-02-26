@@ -1,0 +1,243 @@
+---
+title: "Data Analysis"
+format: html
+editor: visual
+---
+
+# Experiment 1 Data Clean and Analysis
+
+## What the variables mean:
+
+-   id: subject, should be 30 total.
+
+-   block: 150 total. 15 seconds to complete one block. max 30 trials per block.
+
+-   csi: 1 is short (no prep), 2 is long (yes prep)
+
+-   task: 1 is parity, 2 is size numpresent: number (stimulus) presented in each trial
+
+-   rt: or response time act_res: actual response as a key code (this is repeated twice by mistake)
+
+-   error: 0 = no error, 1 = yes error
+
+-   points: used for incentive, 3 correct responses = 1 point
+
+-   switch: 1 is switch trial, 0 is no-switch
+
+-   lcsi: lag csi or n-1 csi
+
+```{r}
+#| include: FALSE
+library(tidyverse)
+library(janitor)
+library(readr)
+library(rio)
+library(psych)
+library(ez)
+
+#if were plotting or doing any tables
+theme_set(theme_minimal())
+
+# Set working directory
+setwd("C:/Users/forrest/OneDrive/Documents/Prepswitch/Experiment_1/Data")
+
+# List all text files
+files <- list.files(pattern = "*.txt")
+
+# Initialize an empty list to store dataframes
+df_list <- list()
+
+# Iterate over each file and read its content
+for (file in files) {
+  data <- read.table(file, header = FALSE, sep = "\t")
+  df_list <- append(df_list, list(data))
+}
+
+# Concatenate all dataframes into one
+combined_df <- do.call(rbind, df_list)
+
+exp_1 <- combined_df %>% 
+ rename(id = V1, block = V2, trial = V3, var = V4, practice = V5, csi = V6, task = V7, numpresent = V8, cor_res = V9, rt = V10, act_res = V11,  error = V12, act_res_again = V13, points = V14)
+#view(exp_1) #added one col i have no clue what it is called var bc we didnt account for it (at least in my notes)
+
+#holy poop this took me so long...
+
+#save this to csv
+
+write.csv(exp_1, "PrepSwitch.csv", row.names = F)
+
+PrepSwitch <- read_csv("~/Prepswitch/PrepSwitch.csv")
+```
+
+## Clean our data from outliers and practice trials. Add in some columns of interest.
+
+```{r}
+#removing practice trials from our df
+prep <- PrepSwitch %>% 
+  filter(practice != 1)
+
+sum_er <- prep %>% #determine 80% accuracy 
+  group_by(id) %>% 
+summarize(avg_er = mean(error)) %>% 
+  print()
+
+sum_er <- sum_er %>% 
+  mutate(outlier_er =  (avg_er > 0.20)) %>% 
+  print() #2 people fall below 80% accuracy. id 19 and 30. 
+
+#removing those outliers here and adding switch trials and lag trials and incongruencies. 
+
+prep <- prep %>% 
+  filter(id != 19, id != 30) %>% 
+  mutate(switch = ifelse(task == lag(task,1), 0, 1), 
+         lcsi = lag(csi, 1), incongruent = ifelse(numpresent %in% c(1,3,6,8), 0, 1), lincongruent = lag(incongruent,1), lerror = lag(error, 1), lrt = lag(rt, 1)) %>%#lag looks at trial before, need to filter out the first of each block bc nothing to compare
+  filter(trial != 1, rt > 200 & rt < 4000)
+
+prep <- prep %>% 
+  group_by(id) %>% 
+  mutate(alltrials = n()) %>% 
+  ungroup() #I noticed there was one subject that only had 229 trials total...
+
+view(prep)
+```
+
+Aggregating the variables we're interested in then performing some ANOVA's
+
+```{r}
+agglag <- prep %>% 
+  group_by(id, lcsi, switch) %>% #agg lag groups to then do anova. 
+  summarize(rt = mean(rt[error == 0], na.rm = T), 
+            error = mean(error, na.rm = T)) 
+agglag
+
+agglag2 <- agglag %>% #this is the important thing we want to see in the n-1 trials. looking at pattern of means here 
+  group_by(lcsi, switch) %>% 
+  summarize(rt = mean(rt, na.rm = T), 
+            error = mean(error, na.rm = T)) 
+agglag2
+
+#doing our anovas for the agglag aggragates: 
+
+anovart <- ezANOVA(data = agglag ,  
+dv = rt, wid = id, within = .(lcsi, switch), type = 3, detailed = T)
+anovart
+
+anovaer <- ezANOVA(data = agglag, 
+dv = error, wid = id, within = .(lcsi, switch), type = 3, detailed = T)
+anovaer
+```
+
+```{r}
+allagg <- prep %>% #this is interactions with everything, n-1 csi and n csi
+  group_by(id, lcsi,csi, switch) %>% 
+  summarize(rt = mean(rt[error == 0], na.rm = T), 
+            error = mean(error, na.rm = T)) 
+allagg
+
+#doing anovas with all interactions were interested in
+
+anovartall <- ezANOVA(data = allagg ,  
+dv = rt, wid = id, within = .(lcsi,csi, switch), type = 3, detailed = T)
+anovartall
+
+anovaerall <- ezANOVA(data = allagg, 
+dv = error, wid = id, within = .(lcsi, csi, switch), type = 3, detailed = T)
+anovaerall
+```
+
+We want to see basic effects of short (1) and long (2) csi and mean response time by switch trial.
+
+```{r}
+ 
+csiagg <- prep %>% 
+  group_by(csi, switch) %>% 
+  summarize(rt = mean(rt[error == 0], na.rm = T), 
+            error = mean(error, na.rm = T)) 
+csiagg
+
+csiagg2 <-  csiagg %>% 
+  group_by(csi, switch) %>% 
+  summarize(rt = mean(rt, na.rm = T), 
+            error = mean(error, na.rm = T)) 
+csiagg2
+
+```
+
+## Address Preparation levels and incongruencies
+
+**Addressing preparation levels (low and high).** We are assessing preparation first, we are determining preparation by proportion by each subject then performing a median split into high and low preparation categories.
+
+anovamedian \<- ezANOVA(data = medianagg,
+
+dv = error, wid = id, within = .(lcsi, csi, switch), between = .(medianpp) ,type = 3, detailed = T)
+
+anovamedian
+
+```{r}
+
+#adressing preparation levels (low and high)
+prep_assess <- prep %>% 
+  group_by(id, csi) %>% 
+  summarise(avgrt = mean(rt, na.rm = T)) %>% 
+  pivot_wider(names_from = csi, names_prefix = "csi", values_from = avgrt) %>% 
+  mutate(pp = (csi1 - csi2)/csi1) %>% 
+  ungroup() %>% 
+  mutate(medianpp = ifelse(pp > median(pp), 1, 0)) #1 is high, 0 is low
+prep_assess
+
+prep <- merge(prep, prep_assess, by = 'id') #merging both dataframes to add all these new variables.
+
+#now with this new variable, we want to aggragate our median preparation and other interested variables so we can see pattern of means and run ANOVA. we are filtering out
+medianagg <- prep %>% 
+  filter(id != 33) %>% 
+  group_by(id, medianpp, lcsi, csi, switch) %>% 
+   summarize(rt = mean(rt[error == 0], na.rm = T), 
+            error = mean(error, na.rm = T))
+medianagg
+
+anovamedian <- ezANOVA(data = medianagg, 
+dv = error, wid = id, within = .(lcsi, csi, switch), between = .(medianpp) ,type = 3, detailed = T)
+anovamedian
+
+medianagg1 <- medianagg %>% 
+  group_by( medianpp, lcsi, csi, switch) %>% 
+   summarize(rt = mean(rt, na.rm = T), 
+            error = mean(error, na.rm = T))
+medianagg1
+
+```
+
+**Addressing incongruities.** Where congruent trials would be numbers present: 1,3,6,8 where 1,3 left always, 6,8 right always.
+
+```{r}
+
+congagg <- prep %>% 
+  group_by(id, switch, lincongruent, csi, lcsi, incongruent) %>% 
+  summarize(rt = mean(rt[error == 0], na.rm = T), 
+            error = mean(error, na.rm = T)) 
+
+congagg1 <- congagg %>% 
+  group_by(switch, lincongruent) %>% 
+  summarize(rt = mean(rt, na.rm = T), 
+            error = mean(error, na.rm = T)) %>% 
+  ungroup()
+congagg #slower on switch trials after incongruent trials
+
+anovacong <- ezANOVA(data = congagg ,  
+dv = rt, wid = id, within = .(csi,lcsi, switch, incongruent, lincongruent), type = 3, detailed = T)
+anovacong
+  
+```
+
+**Main finding:** we didn't seem to get a significant result that our preparation component was working. Further analysis reveals that our csi interaction with switch trial is not working very well with low preparation or high preparation subjects. Need to think of a way to induce better preparation in our task. Thinking of a dominant v non-dominant task- something like a **reverse stroop task**. Think about a way we can incorporate preparation into this task.
+
+**new analysis:** trial to trial predicability of response time. make sure on each trial have a n-1 error and our rt of previous trial. generate a variable showing all trial number per subject.
+
+**according to stab/flex:** what we want to know is n-1 trial fast, slow if you do have to switch fast if you dont have to switch.
+
+```{r}
+
+
+  
+
+```

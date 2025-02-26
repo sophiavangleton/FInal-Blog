@@ -21,34 +21,49 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```{r}
 #| include: False
+library(here)
 library(tidyverse)
-library(edld652)
-library(janitor)
+library(ez)
+library(psych)
+library(sparkline)
+library(readr)
 
-#set_key(1234, overwrite = T)
+PrepSwitch <- read.csv("~/EDLD_652/FInal Blog/_posts/2025-02-19-first-post/PrepSwitch.csv")
 
-get_documentation("EDFacts_math_achievement_lea_2010_2019")
+head(PrepSwitch)
 
-edu_math <- get_data("EDFacts_math_achievement_lea_2010_2019")
+#clean data 
 
-edu_math <- clean_names(edu_math)
+#removing practice trials from our df
+prep <- PrepSwitch %>% 
+  filter(practice != 1)
 
-theme_set(theme_minimal())
+sum_er <- prep %>% #determine 80% accuracy 
+  group_by(id) %>% 
+summarize(avg_er = mean(error)) %>% 
+  print()
+
+sum_er <- sum_er %>% 
+  mutate(outlier_er =  (avg_er > 0.20)) %>% 
+  print() #2 people fall below 80% accuracy. id 19 and 30. 
+
+#removing those outliers here and adding switch trials and lag trials and incongruencies. 
+
+prep <- prep %>% 
+  filter(id != 19, id != 30) %>% 
+  mutate(switch = ifelse(task == lag(task,1), 0, 1), 
+         lcsi = lag(csi, 1), incongruent = ifelse(numpresent %in% c(1,3,6,8), 0, 1), lincongruent = lag(incongruent,1), lerror = lag(error, 1), lrt = lag(rt, 1)) %>%#lag looks at trial before, need to filter out the first of each block bc nothing to compare
+  filter(trial != 1, rt > 200 & rt < 4000)
+
+prep <- prep %>% 
+  group_by(id) %>% 
+  mutate(alltrials = n()) %>% 
+  ungroup() #I noticed there was one subject that only had 229 trials total...
+
+view(prep)
 ```
 
 ```{r}
-plot1 <- edu_math %>% 
-  filter(!is.na(ecd_mth03pctprof)) %>% 
-  ggplot(aes(ecd_mth03numvalid, ecd_mth03pctprof)) +
-  geom_col() +
-  labs(title = 'Academic Acheivement by Financial Status', subtitle = 'Mathmatic Acheivement at The Third-grade level', x = 'Economically Disadvantaged Students', y = "Percent scoring at or above proficiency level")
-plot1
 
-plot2 <- edu_math %>% 
-  filter(!is.na(ecd_mth08pctprof)) %>% 
-  ggplot(aes(ecd_mth08numvalid, ecd_mth08pctprof)) +
-  geom_col() +
-  labs(title = 'Academic Acheivement by Financial Status', subtitle = 'Mathmatic Acheivement at The Eighth-grade level', x = 'Economically Disadvantaged Students', y = "Percent scoring at or above proficiency level")
-plot2
 ```
 
