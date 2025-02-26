@@ -1,7 +1,7 @@
 ---
 title: "first-post"
 description: |
-  In this I am interested in my first research question, I want to compare (ECD) or economically disadvantaged students to (ALL) all students and additionally I can compare by grade. Here I will compare the lowest and highest grade (03 and 08) that is listed.
+ In this study, we are interested in testing a tradeoff pattern of stability/flexibility through a task-switching paradigm. Particularly we are interested in the interaction between pre-switch trials cue stimulus intervals (n-1 CSI’s) and no-switch/switch trials (NS/S).
 author:
   - name: Sophia Angleton
     url: https://example.com/norajones
@@ -16,7 +16,7 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-
+Firstly, I want to look at the interaction effects between switch trials, or when someone is switching from one task intruction to another, and no-switch trials, or when someone is doing one task repeatedly. I am doing this by looking at switch costs, represented through differences in response time. 
 
 
 ```{r}
@@ -27,6 +27,10 @@ library(ez)
 library(psych)
 library(sparkline)
 library(readr)
+library(ggsignif)
+library(car)
+library(broom)
+library(ggthemes)
 
 PrepSwitch <- read.csv("~/EDLD_652/FInal Blog/_posts/2025-02-19-first-post/PrepSwitch.csv")
 
@@ -51,7 +55,7 @@ sum_er <- sum_er %>%
 
 prep <- prep %>% 
   filter(id != 19, id != 30) %>% 
-  mutate(switch = ifelse(task == lag(task,1), 0, 1), 
+  mutate(switch = ifelse(task == lag(task,1), "No-switch", "Switch"), 
          lcsi = lag(csi, 1), incongruent = ifelse(numpresent %in% c(1,3,6,8), 0, 1), lincongruent = lag(incongruent,1), lerror = lag(error, 1), lrt = lag(rt, 1)) %>%#lag looks at trial before, need to filter out the first of each block bc nothing to compare
   filter(trial != 1, rt > 200 & rt < 4000)
 
@@ -60,10 +64,48 @@ prep <- prep %>%
   mutate(alltrials = n()) %>% 
   ungroup() #I noticed there was one subject that only had 229 trials total...
 
-view(prep)
+#view(prep)
+
+
+#aggragation of the parts of our data that we are interesting in seeing
+
+agglag <- prep %>% 
+  group_by(id, lcsi, switch) %>% #agg lag groups to then do anova. 
+  summarize(rt = mean(rt[error == 0], na.rm = T), 
+            error = mean(error, na.rm = T)) 
+agglag
+
+agglag2 <- agglag %>% #this is the important thing we want to see in the n-1 trials. looking at pattern of means here 
+  group_by(lcsi, switch) %>% 
+  summarize(rt = mean(rt, na.rm = T), 
+            error = mean(error, na.rm = T)) 
+agglag2
+
+
+#doing our anovas for the agglag aggragates: 
+
+anovart <- ezANOVA(data = agglag ,  
+dv = rt, wid = id, within = .(lcsi, switch), type = 3, detailed = T)
+anovart
+
+anovaer <- ezANOVA(data = agglag, 
+dv = error, wid = id, within = .(lcsi, switch), type = 3, detailed = T)
+anovaer
 ```
 
 ```{r}
+boxplot <- agglag %>% 
+  filter(switch != "NA") %>% 
+  ggplot(aes(x = switch, y = rt)) +
+  geom_boxplot(fill = "#AABA99") +
+  labs(title = "Trial Type On Reaction Time", x = "Trial Type", y= "Reaction Time (msec)")+
+  theme_solarized() 
+boxplot
 
+plotly::ggplotly()
+
+```
+```{r}
+interaction.plot(agglag$switch, agglag$rt, main = "Interaction Plot", xlab = "Trial Type", ylab = "Response times")
 ```
 
