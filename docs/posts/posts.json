@@ -2,7 +2,7 @@
   {
     "path": "posts/2025-02-19-first-post/",
     "title": "first-post",
-    "description": "In this I am interested in my first research question, I want to compare (ECD) or economically disadvantaged students to (ALL) all students and additionally I can compare by grade. Here I will compare the lowest and highest grade (03 and 08) that is listed.",
+    "description": "In this study, we are interested in testing a tradeoff pattern of stability/flexibility through a task-switching paradigm. Particularly we are interested in the interaction between pre-switch trials cue stimulus intervals (n-1 CSI’s) and no-switch/switch trials (NS/S).",
     "author": [
       {
         "name": "Sophia Angleton",
@@ -11,9 +11,9 @@
     ],
     "date": "2025-02-19",
     "categories": [],
-    "contents": "\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+    "contents": "\r\nFirstly, I want to look at the interaction effects between switch trials, or when someone is switching from one task intruction to another, and no-switch trials, or when someone is doing one task repeatedly. I am doing this by looking at switch costs, represented through differences in response time.\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
     "preview": "posts/2025-02-19-first-post/first-post_files/figure-html5/unnamed-chunk-2-1.png",
-    "last_modified": "2025-02-19T15:41:25-08:00",
+    "last_modified": "2025-02-26T16:02:45-08:00",
     "input_file": {}
   },
   {
@@ -31,7 +31,24 @@
     "contents": "\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
     "preview": "posts/2025-02-19-second-post/second-post_files/figure-html5/unnamed-chunk-2-1.png",
     "last_modified": "2025-02-19T15:57:57-08:00",
-    "input_file": "second-post.knit.md"
+    "input_file": {}
+  },
+  {
+    "path": "posts/2025-02-19-third-post/",
+    "title": "third-post",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Sophia Angleton",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2025-02-19",
+    "categories": [],
+    "contents": "\r\nDistill is a publication format for scientific and technical writing, native to the web.\r\nLearn more about using Distill at https://rstudio.github.io/distill.\r\n\r\n\r\n\r\n",
+    "preview": {},
+    "last_modified": "2025-02-19T16:23:27-08:00",
+    "input_file": {}
   },
   {
     "path": "posts/welcome/",
@@ -49,22 +66,5 @@
     "preview": {},
     "last_modified": "2025-02-19T15:16:30-08:00",
     "input_file": {}
-  },
-  {
-    "path": "posts/2025-02-19-third-post/",
-    "title": "third-post",
-    "description": "A short description of the post.",
-    "author": [
-      {
-        "name": "Sophia Angleton",
-        "url": "https://example.com/norajones"
-      }
-    ],
-    "date": "2025-02-19",
-    "categories": [],
-    "contents": "\r\nDistill is a publication format for scientific and technical writing, native to the web.\r\nLearn more about using Distill at https://rstudio.github.io/distill.\r\n\r\n\r\n\r\n",
-    "preview": {},
-    "last_modified": "2025-02-19T16:23:26-08:00",
-    "input_file": "third-post.knit.md"
   }
 ]

@@ -6,14 +6,14 @@
       "description": "This is the final project in EDLD 652. There are several data visualization located here. ",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2025-02-19T15:56:13-08:00"
+      "last_modified": "2025-02-26T16:03:05-08:00"
     },
     {
       "path": "index.html",
       "title": "My Blog",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2025-02-19T15:56:14-08:00"
+      "last_modified": "2025-02-26T16:03:06-08:00"
     }
   ],
   "collections": ["posts/posts.json"]

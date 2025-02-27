@@ -105,7 +105,5 @@ boxplot
 plotly::ggplotly()
 
 ```
-```{r}
-interaction.plot(agglag$switch, agglag$rt, main = "Interaction Plot", xlab = "Trial Type", ylab = "Response times")
-```
+
 
