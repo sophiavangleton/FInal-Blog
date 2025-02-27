@@ -1,7 +1,7 @@
-name: "FInal Blog"
+name: "Final Blog"
 title: "Data Visualization"
 description: |
-  My Blog
+  PrepSwitch Project Visualizations
 output_dir: "docs"
 navbar:
   right:
