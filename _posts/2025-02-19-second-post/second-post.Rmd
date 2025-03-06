@@ -75,7 +75,7 @@ interaction.plot(x.factor = prep$task,
                  response = prep$rt,
                  fun = mean,
                  type = "b",
-                 col = c("black", "green"),
+                 col = c("black", "#AABA99"),
                  pch = c(19, 17),
                  fixed = TRUE,
                  trace.label = "",          # Remove trace factor label
@@ -84,7 +84,7 @@ interaction.plot(x.factor = prep$task,
                  ylab = "Response Time (msec)") # Custom y-axis label
 
 # Add custom legend to the first plot
-legend("center", legend = c("Congruent", "Incongruent"), col = c("black", "green"), pch = c(19, 17), bty = "n", cex = .8)
+legend("center", legend = c("Congruent", "Incongruent"), col = c("black", "#AABA99"), pch = c(19, 17), bty = "n", cex = .8)
 # Manually add the trace label centered above the first plot
 mtext("Congruency", side = 3, line = .3, at = mean(par("usr")[1:2]), cex = .9)
 # Second interaction plot without the automatic trace label and legend
@@ -93,7 +93,7 @@ interaction.plot(x.factor = prep$task,
                  response = prep$rt,
                  fun = mean,
                  type = "b",
-                 col = c("black", "red"),
+                 col = c("black", "#198BA9"),
                  pch = c(19, 17),
                  fixed = TRUE,
                  trace.label = "",          # Remove trace factor label
@@ -103,7 +103,7 @@ interaction.plot(x.factor = prep$task,
                  )                   # Blank y-axis label
 
 # Add custom legend to the second plot
-legend("center", legend = c("Short CSI", "Long CSI"), col = c("black", "red"), pch = c(19, 17), bty = "n", cex = .8)
+legend("center", legend = c("Short CSI", "Long CSI"), col = c("black", "#198BA9"), pch = c(19, 17), bty = "n", cex = .8)
 mtext("Cue Stimulus Interval", side = 3, line = .3, at = mean(par("usr")[1:2]), cex = .9)
 
 # Manually add the main title centered above both plots
