@@ -1,5 +1,5 @@
 ---
-title: "My Blog"
+title: "Testing the Notion of a Stability/Flexibility Dilemna"
 site: distill::distill_website
 listing: posts
 ---
