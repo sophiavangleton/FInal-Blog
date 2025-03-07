@@ -18,8 +18,8 @@
   },
   {
     "path": "posts/2025-02-19-second-post/",
-    "title": "Second Visualization",
-    "description": "tbd",
+    "title": "Trial Type, Cue Stimulus Interval, and Response Time",
+    "description": "I want to use an interaction between two catagorical variables, trial type and cue stimulus interval, and plot them by reaction time.",
     "author": [
       {
         "name": "Sophia Angleton",
@@ -28,9 +28,9 @@
     ],
     "date": "2025-03-06",
     "categories": [],
-    "contents": "\r\n\r\n\r\n\r\n\r\nFirst Visualization\r\n\r\n\r\n\r\nFinal Visualization\r\n\r\n\r\n\r\nInterpretation\r\n\r\n\r\n\r\n\r\n",
-    "preview": {},
-    "last_modified": "2025-03-06T20:33:30-08:00",
+    "contents": "\r\n\r\n\r\n\r\n\r\nFirst Visualization\r\n\r\n\r\n\r\nSecond Visualization\r\nI want to add an overlay of my individual data points by subject on my violin plots. I also want to remove the redundant legend.\r\n\r\n\r\n\r\nFinal Visualization\r\nAdding in some better visualization the plot colors, sizing, and text.\r\n\r\n\r\n\r\n\r\nInterpretation\r\nVisually, it doesn’t seem like there is much of a change in average reaction time when grouped by trial type (no-switch or switch trial) and cue stimulus interval (short or long preparation before onset of stimulus). Indeed, it seems that through an anova of all these aggregated variables, we see that there is not a significant differences in the pattern of reaction time means in any of these interactions. The biggest difference we do see visually is switch trials and a short CSI- where supposedly when subjects are the most flexible, their reaction times skew longer than in other interactions.\r\n\r\n\r\n\r\n",
+    "preview": "posts/2025-02-19-second-post/second-post_files/figure-html5/unnamed-chunk-3-1.png",
+    "last_modified": "2025-03-06T22:07:57-08:00",
     "input_file": {}
   },
   {

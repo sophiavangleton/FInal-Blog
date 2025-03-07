@@ -1,7 +1,7 @@
 ---
-title: "Second Visualization"
+title: "Trial Type, Cue Stimulus Interval, and Response Time"
 description: |
-  tbd 
+  I want to use an interaction between two catagorical variables, trial type and cue stimulus interval, and plot them by reaction time. 
 author:
   - name: Sophia Angleton
 output:
@@ -56,7 +56,7 @@ sum_er <- sum_er %>%
 prep <- prep %>% 
   filter(id != 19, id != 30) %>% 
   mutate(switch = ifelse(task == lag(task,1), "No-switch", "Switch"), 
-         lcsi = lag(csi, 1), incongruent = ifelse(numpresent %in% c(1,3,6,8), 0, 1), lincongruent = lag(incongruent,1), lerror = lag(error, 1), lrt = lag(rt, 1)) %>%#lag looks at trial before, need to filter out the first of each block bc nothing to compare
+         lcsi = lag(csi, 1), incongruent = ifelse(numpresent %in% c(1,3,6,8), 0, 1), lincongruent = lag(incongruent,1), lerror = lag(error, 1), lrt = lag(rt, 1)) %>% #lag looks at trial before, need to filter out the first of each block bc nothing to compare
   filter(trial != 1, rt > 200 & rt < 4000)
 
 prep <- prep %>% 
@@ -64,33 +64,17 @@ prep <- prep %>%
   mutate(alltrials = n()) %>% 
   ungroup() #I noticed there was one subject that only had 229 trials total...
 
-#view(prep)
+view(prep)
 
 
 #aggragation of the parts of our data that we are interesting in seeing
 
 agglag <- prep %>% 
-  group_by(id, lcsi, switch) %>% #agg lag groups to then do anova. 
+  group_by(id, switch, csi) %>% #agg lag groups to then do anova. 
   summarize(rt = mean(rt[error == 0], na.rm = T), 
             error = mean(error, na.rm = T)) 
 agglag
 
-agglag2 <- agglag %>% #this is the important thing we want to see in the n-1 trials. looking at pattern of means here 
-  group_by(lcsi, switch) %>% 
-  summarize(rt = mean(rt, na.rm = T), 
-            error = mean(error, na.rm = T)) 
-agglag2
-
-
-#doing our anovas for the agglag aggragates: 
-
-anovart <- ezANOVA(data = agglag ,  
-dv = rt, wid = id, within = .(lcsi, switch), type = 3, detailed = T)
-anovart
-
-anovaer <- ezANOVA(data = agglag, 
-dv = error, wid = id, within = .(lcsi, switch), type = 3, detailed = T)
-anovaer
 ```
 
 
@@ -101,26 +85,65 @@ anovaer
 ## First Visualization {.pannel-name}
 
 ```{r}
+# Create an interaction between the two factors
+agglag$switchcsi <- interaction(agglag$switch, agglag$csi)
+ 
+custom_colors <- c("#009EB0", "#B9E192", '#C44601', '#F194B8') #color blind safe pallet
+ 
+
+plot <- ggplot(agglag, aes(x = switchcsi, y = rt, fill = switchcsi)) +
+  geom_violin() +
+  scale_fill_manual(values = custom_colors)
+plot
 
 ```
 :::
 
 ::: {.panel}
 
-## Final Visualization {.pannel-name} 
+## Second Visualization {.pannel-name} 
+
+I want to add an overlay of my individual data points by subject on my violin plots. I also want to remove the redundant legend. 
+
+```{r}
+ 
+plot2 <- ggplot(agglag, aes(x = switchcsi, y = rt, fill = switchcsi)) +
+  geom_violin() +
+  geom_jitter(width = 0.2, height = 0, size = 3, alpha = 0.8) +
+  scale_fill_manual(values = custom_colors) +
+  theme(
+    legend.position = "none"
+  )
+plot2
+```
+
+:::
+
+::: {.panel}
+
+## Final Visualization {.panel-name}
+
+Adding in some better visualization the plot colors, sizing, and text. 
 
 ```{r}
 
+custom_labels <- c("No-switch.1" = "NS & Short CSI", "Switch.1" = "S & Short CSI", "No-switch.2" = "NS & Long CSI", "Switch.2" = "S & Long CSI")
+
+finalplot <- ggplot(agglag, aes(x = switchcsi, y = rt, fill = switchcsi)) +
+  geom_violin(width = 0.5, alpha = 0.6, color = "#FFFDD0") +
+  geom_jitter(width = 0.2, height = 0, size = 1.7, alpha = 0.8, color = '#363737') +
+  scale_fill_manual(values = custom_colors) +
+  labs(title = "Trial Type and Cue Stimulus Interval (CSI) by Response Time", subtitle = "NS = No-Switch, S = Switch", x = "", y = "Response Time (msec)") +
+    scale_x_discrete(labels = custom_labels) +
+  theme(legend.position = "none")
+finalplot
 ```
-
-:::
-
-::: {.panel}
-
-## Interpretation {.panel-name}
-
 
 
 :::
 
 :::::
+
+## Interpretation
+
+Visually, it doesn't seem like there is much of a change in average reaction time when grouped by trial type (no-switch or switch trial) and cue stimulus interval (short or long preparation before onset of stimulus). Indeed, it seems that through an anova of all these aggregated variables, we see that there is not a significant differences in the pattern of reaction time means in any of these interactions. The biggest difference we do see visually is switch trials and a short CSI- where supposedly when subjects are the most flexible, their reaction times skew longer than in other interactions. 
