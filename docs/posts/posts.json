@@ -1,8 +1,8 @@
 [
   {
-    "path": "posts/2025-02-19-second-post/",
-    "title": "Trial Type and Error Rate",
-    "description": "We are interested in trial type, switch or no-switch, and its effect on error rate.",
+    "path": "posts/2025-02-19-first-post/",
+    "title": "Trial Type, Response Time and Error Rate",
+    "description": "We are interested in trial type, switch or no-switch, and its effect on reaction time and error rate.",
     "author": [
       {
         "name": "Sophia Angleton",
@@ -11,9 +11,26 @@
     ],
     "date": "2025-03-06",
     "categories": [],
-    "contents": "\r\nTrial Type and Error Rate\r\nSecondly, I want to look at the interaction effects between trial type and the error rate. I want to do this to account for a possible speed-accuracy tradeoff, where as you get faster in a task you may be less accurate. This is important to account for because it is not the tradeoff we are interested in testing and want to check that this is not the case.\r\n\r\n\r\n\r\n\r\nFirst Visualization\r\n\r\n\r\n\r\nFinal Visualization\r\n\r\n\r\n\r\nInterpretation\r\nWe see that error rate does change from no-switch to switch trials, where no-switch trials seem to lead to lower average error rates by subject, and vice versa for switch trials. We see an outlier in the no-switch trial where one subject had unusually high error rates when completing no-switch trials which may be skewing the plot higher in overall error rate for the no-switch trial type. This is what we expect to see according to previous undersanding of trial type and error rate.\r\n\r\n\r\n\r\n\r\n",
-    "preview": "posts/2025-02-19-second-post/second-post_files/figure-html5/unnamed-chunk-3-1.png",
-    "last_modified": "2025-03-06T17:43:40-08:00",
+    "contents": "\r\nTrial Type and Response Time\r\nFirstly, I want to look at the interaction effects between switch trials, or when someone is switching from one task instruction to another, and no-switch trials, or when someone is doing one task repeatedly. I am doing this by looking at switch costs, represented through differences in response time.\r\n\r\n\r\n\r\n\r\nFirst Visualization\r\n\r\n\r\n\r\nBy Reaction Time\r\n\r\n\r\n\r\nBy Error\r\nLets look at this by error.\r\n\r\n\r\n\r\n\r\nInterpretation\r\n\r\nTrial Type on Reaction Time\r\nWe see that there is a difference in reaction time by trial types, where people tend to have a shorter reaction time in no-switch trials compared to switch trials. However, we see that there are two outliers, meaning that there are two subjects who had an unusually high mean response time in switch trials than others. This may contribute to skewing our switch trial mean response time to be longer than it should be. This is what we expect to see according to previous understanding of trial type and response time.\r\nTrial Type on Error Rate\r\nWe see that error rate does change from no-switch to switch trials, where no-switch trials seem to lead to lower average error rates by subject, and vice versa for switch trials. We see an outlier in the no-switch trial where one subject had unusually high error rates when completing no-switch trials which may be skewing the plot higher in overall error rate for the no-switch trial type. This is what we expect to see according to previous undersanding of trial type and error rate.\r\n\r\n\r\n\r\n\r\n",
+    "preview": "posts/2025-02-19-first-post/first-post_files/figure-html5/unnamed-chunk-3-1.png",
+    "last_modified": "2025-03-06T20:32:35-08:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/2025-02-19-second-post/",
+    "title": "Second Visualization",
+    "description": "tbd",
+    "author": [
+      {
+        "name": "Sophia Angleton",
+        "url": {}
+      }
+    ],
+    "date": "2025-03-06",
+    "categories": [],
+    "contents": "\r\n\r\n\r\n\r\n\r\nFirst Visualization\r\n\r\n\r\n\r\nFinal Visualization\r\n\r\n\r\n\r\nInterpretation\r\n\r\n\r\n\r\n\r\n",
+    "preview": {},
+    "last_modified": "2025-03-06T20:33:30-08:00",
     "input_file": {}
   },
   {
@@ -48,23 +65,6 @@
     "contents": "\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
     "preview": {},
     "last_modified": "2025-03-06T17:46:05-08:00",
-    "input_file": {}
-  },
-  {
-    "path": "posts/2025-02-19-first-post/",
-    "title": "Trial Type and Response Time",
-    "description": "We are interested in trial type, switch or no-switch, and its effect on reaction time.",
-    "author": [
-      {
-        "name": "Sophia Angleton",
-        "url": {}
-      }
-    ],
-    "date": "2025-02-19",
-    "categories": [],
-    "contents": "\r\nTrial Type and Response Time\r\nFirstly, I want to look at the interaction effects between switch trials, or when someone is switching from one task instruction to another, and no-switch trials, or when someone is doing one task repeatedly. I am doing this by looking at switch costs, represented through differences in response time.\r\n\r\n\r\n\r\n\r\nFirst Visualization\r\n\r\n\r\n\r\nFinal Visualization\r\n\r\n\r\n\r\nInterpretation\r\nWe see that there is a difference in reaction time by trial types, where people tend to have a shorter reaction time in no-switch trials compared to switch trials. However, we see that there are two outliers, meaning that there are two subjects who had an unusually high mean response time in switch trials than others. This may contribute to skewing our switch trial mean response time to be longer than it should be. This is what we expect to see according to previous understanding of trial type and response time.\r\n\r\n\r\n\r\n\r\n",
-    "preview": "posts/2025-02-19-first-post/first-post_files/figure-html5/unnamed-chunk-3-1.png",
-    "last_modified": "2025-03-06T16:42:58-08:00",
     "input_file": {}
   }
 ]

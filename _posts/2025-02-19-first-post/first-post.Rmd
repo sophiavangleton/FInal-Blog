@@ -1,7 +1,7 @@
 ---
-title: "Trial Type and Response Time"
+title: "Trial Type, Response Time and Error Rate"
 description: |
- We are interested in trial type, switch or no-switch, and its effect on reaction time.
+ We are interested in trial type, switch or no-switch, and its effect on reaction time and error rate.
 author:
   - name: Sophia Angleton
 output:
@@ -113,7 +113,7 @@ boxplot
 
 ::: {.panel}
 
-## Final Visualization {.pannel-name} 
+## By Reaction Time {.pannel-name} 
 
 ```{r}
 
@@ -129,11 +129,41 @@ boxplot2
 
 ::: {.panel}
 
-## Interpretation {.panel-name}
+## By Error {.panel-name}
 
-We see that there is a difference in reaction time by trial types, where people tend to have a shorter reaction time in no-switch trials compared to switch trials. However, we see that there are two outliers, meaning that there are two subjects who had an unusually high mean response time in switch trials than others. This may contribute to skewing our switch trial mean response time to be longer than it should be. This is what we expect to see according to previous understanding of trial type and response time.
+Lets look at this by error.
+
+```{r}
+boxploter <- agglag %>% 
+  ggplot(aes(x = switch, y = error)) +
+  geom_boxplot(fill = "#AABA99") +
+  labs(title = "Trial Type On Error Rate", x= "Trial Type", y= "Error Rate", subtitle = "Mean Error Rates by Trial Type")
+boxploter
+```
+
 
 :::
 
 :::::
 
+## Interpretation
+
+::::: {.panelset}
+
+::: {.panel}
+
+## Trial Type on Reaction Time {.panel-name}
+
+We see that there is a difference in reaction time by trial types, where people tend to have a shorter reaction time in no-switch trials compared to switch trials. However, we see that there are two outliers, meaning that there are two subjects who had an unusually high mean response time in switch trials than others. This may contribute to skewing our switch trial mean response time to be longer than it should be. This is what we expect to see according to previous understanding of trial type and response time.
+
+:::
+
+::: {.panel}
+
+## Trial Type on Error Rate {.panel-name}
+
+We see that error rate does change from no-switch to switch trials, where no-switch trials seem to lead to lower average error rates by subject, and vice versa for switch trials. We see an outlier in the no-switch trial where one subject had unusually high error rates when completing no-switch trials which may be skewing the plot higher in overall error rate for the no-switch trial type. This is what we expect to see according to previous undersanding of trial type and error rate.
+
+:::
+
+:::::
