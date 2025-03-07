@@ -88,7 +88,7 @@ agglag
 # Create an interaction between the two factors
 agglag$switchcsi <- interaction(agglag$switch, agglag$csi)
  
-custom_colors <- c("#009EB0", "#B9E192", '#C44601', '#F194B8') #color blind safe pallet
+custom_colors <- c("#009EB0", "#AABA99", '#C44601', '#F194B8') #color blind safe pallet
  
 
 plot <- ggplot(agglag, aes(x = switchcsi, y = rt, fill = switchcsi)) +
