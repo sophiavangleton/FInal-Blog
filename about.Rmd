@@ -1,9 +1,70 @@
 ---
-title: "About this blog"
+title: "Preregistration"
 description: |
-  This is the final project in EDLD 652. There are several data visualization located here. 
+  *Is it Harder to Switch away from Well-Prepared Tasks? Testing the Notion of a Stability-Flexibility Dilemma.* 
+author:
+  - name: Sophia Angleton
+    url: https://doi.org/10.17605/OSF.IO/4DVGS
+    affiliation: University of Oregon
+    affiliation_url: https://www.uoregon.edu/
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+```{r}
+#| echo: False
+xaringanExtra::use_panelset()
+```
+  
+## Abstract
+
+*According to the stability/flexibility tradeoff, when one is performing a task that requires more cognitive stability, it is harder to be more cognitively flexible (Goschke, 2000). A recent reevaluation of the generalizability of the stability/flexibility tradeoff has posited that this negative relationship thought to occur with cognitive stability/flexibility may occur only in highly specified contexts (Mayr & Graetz, 2024). Instead, these authors argued for the possibility of an anti-tradeoff pattern, meaning there is a co-occurrence of cognitive stability and flexibility depending on the level of resolution encoding (Mayr et al., 2014).*  
+
+*In this study, we are interested in testing this tradeoff pattern of stability/flexibility through a task-switching paradigm. Particularly we are interested in the interaction between pre-switch trials cue stimulus intervals (n-1 CSI’s) and no-switch/switch trials (NS/S).*  
+
+## Hypothesis
+
+**Null Hypothesis**: Given the dominance of the stability-flexibility assumption, a credible Null-result of no interaction between N-1 CSI and the task-switch factor would be of interest. 
+
+ 
+
+**Alt Hypothesis:** We predict there will be a directional relationship between task-switching and the cue stimulus interval. Directionality is informed through two main prediction models, the attractor landscape tradeoff model and the cognitive map anti-tradeoff model. We will measure both error rates and response time (RT) to inform our predictions, however between prediction models we are mainly interested in differences between response times and CSIs.  
+
+
+*N-1 CSI x NS/S*
+
+ 
+**H1 Stability/Flexibility Tradeoff “Landscape” Model:** This hypothesis captures the prediction from the dominant tradeoff model. From that perspective, we would expect a negative directional relationship between the n-1 CSI and the task switch factor (NS/S) Specifically, we predict a significant interaction between n-1 CSI and No/S transitions, such that switch costs are larger when n-1 CSI was long than when it was short.
+ 
+
+**H2 The Anti-Tradeoff “Cognitive Map” Model:** Even more informative would be a positive directional relationship between n-1 task-switching and the n-1 CSI. Specifically, we predict a significant interaction between n-1 CSI and No/S transitions, such that switch costs are smaller when n-1 CSI was long than when it was short. We do not predict a significant difference in response time or error rate concerning task instruction order (size to parity, parity to size), only in task switch to no-switch order and its interaction with CSI latency. 
+
+**H3:** In addition, we will explore the possible modifying role of trial N preparation (CSI). It is possible that the effect of N-1 CSI becomes apparent only when the trial N CSI is short (i.e., when there is little time for preparation). Thus, here we test for a N CSI x N-1 CSI * NS/S interaction, such that the pattern predicted for H2 is stronger when N CSI is long than when it is short. 
+
+In general, RT is our primary dependent variable. However, we will also examine error rates, to ensure that RT results are not qualified by tradeoff patterns (i.e., opposite direction of RT and error patterns).  
+
+## Study Design
+
+For our main predictions (H0, H1, and H2) we will use a 2x2 factorial within-subject design. 
+
+**Participants**
+
+Subjects will be recruited using the University of Oregon's Human Subject Pool site. Participants are university students and will receive 1 course credit for their participation. This is a one-hour study conducted in-person and has no exclusion criteria. The target sample size is 30 subjects. 
+
+ 
+
+**Tasks and Stimuli** 
+
+Subjects will see a box centered in the middle of a screen with a single digit number excluding 1, 5 and 0 in the box and one of two possible task instructions shown above the stimulus. There are two tasks, one task is either to determine if the number is larger than 5 or less than 5, denoted by instructions shown on the screen that says ‘Size’. The other task, called ‘Parity’ means that subjects will need to determine the parity of the number by instructions shown above the stimulus. In each block they will be given 15 seconds to complete as many of these trials as possible (max = 30 trials/block). 
+
+ 
+
+**Procedure** 
+
+Participants will sign an informed consent form given by our lab, then will be instructed through the experiment ahead. They are told that in this study they will need to complete either a “Size” or “Parity” judgement of a number presented on the screen. There will be 150 blocks total, each block in a constant 15 second time limit. Where initiated trials are allowed to finish beyond the time limit. Upon learning the instructions, participants will complete two practice blocks, then proceed to the start of the experiment. After each block, they will receive feedback on trials completed, errors per block, correct responses, and accumulation of cents (3 correct responses = 1 cent). Cents are aggregated throughout trials which create incentive and retain task attention. After completion, they are asked to fill out two short lab surveys and will then be debriefed by the researcher and thanked for their time. 
+
+**Design** 
+
+In both tasks, size and parity, the instructions for this will be shown above the numerical stimulus in either a short (.0 sec) or long (.5 sec) CSI in which the subjects are not told about this manipulation. This means that when starting a new trial, depending on either the short or long CSI, the cue instructions size or parity are shown .0 or .5 seconds before the stimulus is presented and remain above the stimulus throughout that trial. 

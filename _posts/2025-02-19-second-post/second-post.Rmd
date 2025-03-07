@@ -1,11 +1,9 @@
 ---
-title: "Interaction Plots"
+title: "Trial Type and Error Rate"
 description: |
-  I am looking at the interactions between trial type, switch or no-switch, and our two main effect variables, the cue stimulus interval (CSI) of the trial or the congruency of the trial
+  We are interested in trial type, switch or no-switch, and its effect on error rate. 
 author:
   - name: Sophia Angleton
-    url: https://example.com/norajones
-date: 2025-02-19
 output:
   distill::distill_article:
     self_contained: false
@@ -15,7 +13,14 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+## Trial Type and Error Rate
 
+Secondly, I want to look at the interaction effects between trial type and the error rate. I want to do this to account for a possible speed-accuracy tradeoff, where as you get faster in a task you may be less accurate. This is important to account for because it is not the tradeoff we are interested in testing and want to check that this is not the case. 
+
+```{r}
+#| echo: False
+xaringanExtra::use_panelset()
+```
 
 ```{r}
 #| include: False
@@ -23,15 +28,18 @@ library(here)
 library(tidyverse)
 library(ez)
 library(psych)
+library(sparkline)
 library(readr)
 library(ggsignif)
-library(plotly)
-library(ggthemes)
-library(patchwork)
+library(car)
+library(broom)
+
 PrepSwitch <- read.csv("~/EDLD_652/FInal Blog/_posts/2025-02-19-first-post/PrepSwitch.csv")
+theme_set(theme_minimal())
+head(PrepSwitch)
 
 #clean data 
-theme_set(theme_solarized())
+
 #removing practice trials from our df
 prep <- PrepSwitch %>% 
   filter(practice != 1)
@@ -60,58 +68,68 @@ prep <- prep %>%
 
 #view(prep)
 
+
+#aggragation of the parts of our data that we are interesting in seeing
+
+agglag <- prep %>% 
+  group_by(id, lcsi, switch) %>% #agg lag groups to then do anova. 
+  summarize(rt = mean(rt[error == 0], na.rm = T), 
+            error = mean(error, na.rm = T)) 
+agglag
+
+agglag2 <- agglag %>% #this is the important thing we want to see in the n-1 trials. looking at pattern of means here 
+  group_by(lcsi, switch) %>% 
+  summarize(rt = mean(rt, na.rm = T), 
+            error = mean(error, na.rm = T)) 
+agglag2
+
+
+#doing our anovas for the agglag aggragates: 
+
+anovart <- ezANOVA(data = agglag ,  
+dv = rt, wid = id, within = .(lcsi, switch), type = 3, detailed = T)
+anovart
+
+anovaer <- ezANOVA(data = agglag, 
+dv = error, wid = id, within = .(lcsi, switch), type = 3, detailed = T)
+anovaer
 ```
 
 
+::::: {.panelset}
 
+::: {.panel}
+
+## First Visualization {.pannel-name}
 
 ```{r}
-# Set up the plotting area with two plots side by side
-par(mfrow = c(1, 2))
+boxploter <- agglag %>% 
+  ggplot(aes(x = switch, y = error)) +
+  geom_boxplot() 
+boxploter
+```
+:::
 
-# First interaction plot without the automatic trace label and legend
-interaction.plot(x.factor = prep$task,
-                 trace.factor = prep$incongruent,
-                 response = prep$rt,
-                 fun = mean,
-                 type = "b",
-                 col = c("black", "#AABA99"),
-                 pch = c(19, 17),
-                 fixed = TRUE,
-                 trace.label = "",          # Remove trace factor label
-                 leg.bty = "o",               # No border for legend
-                 xlab = "",         # Custom x-axis label
-                 ylab = "Response Time (msec)") # Custom y-axis label
+::: {.panel}
 
-# Add custom legend to the first plot
-legend("center", legend = c("Congruent", "Incongruent"), col = c("black", "#AABA99"), pch = c(19, 17), bty = "n", cex = .8)
-# Manually add the trace label centered above the first plot
-mtext("Congruency", side = 3, line = .3, at = mean(par("usr")[1:2]), cex = .9)
-# Second interaction plot without the automatic trace label and legend
-interaction.plot(x.factor = prep$task,
-                 trace.factor = prep$csi,
-                 response = prep$rt,
-                 fun = mean,
-                 type = "b",
-                 col = c("black", "#198BA9"),
-                 pch = c(19, 17),
-                 fixed = TRUE,
-                 trace.label = "",          # Remove trace factor label
-                 leg.bty = "o",               # No border for legend
-                 xlab = "",                   # Blank x-axis label
-                 ylab = "" 
-                 )                   # Blank y-axis label
+## Final Visualization {.pannel-name} 
 
-# Add custom legend to the second plot
-legend("center", legend = c("Short CSI", "Long CSI"), col = c("black", "#198BA9"), pch = c(19, 17), bty = "n", cex = .8)
-mtext("Cue Stimulus Interval", side = 3, line = .3, at = mean(par("usr")[1:2]), cex = .9)
-
-# Manually add the main title centered above both plots
-mtext("Interactions Of Congruency and CSI On Trial Type", side = 3, line = 2, at = .4, cex = 1.5)
-mtext("Trial Type", side = 1, line = 2, at = .4, cex = 1.2)
-
-# Reset plotting parameters to default
-par(mfrow = c(1, 1))
-
+```{r}
+boxploter <- agglag %>% 
+  ggplot(aes(x = switch, y = error)) +
+  geom_boxplot(fill = "#AABA99") +
+  labs(title = "Trial Type On Error Rate", x = "Trial Type", y= "Error", subtitle = "Mean Error Rates by Trial Type")
+boxploter
 ```
 
+:::
+
+::: {.panel}
+
+## Interpretation {.panel-name}
+
+We see that error rate does change from no-switch to switch trials, where no-switch trials seem to lead to lower average error rates by subject, and vice versa for switch trials. We see an outlier in the no-switch trial where one subject had unusually high error rates when completing no-switch trials which may be skewing the plot higher in overall error rate for the no-switch trial type. This is what we expect to see according to previous undersanding of trial type and error rate.
+
+:::
+
+:::::
