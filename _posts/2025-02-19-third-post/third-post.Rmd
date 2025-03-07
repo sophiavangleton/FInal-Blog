@@ -205,10 +205,21 @@ par(mfrow = c(1, 1))
 
 ## Interpretation
 
-### *Congruence*
+::::::: panelset
+::: panel
+
+## *Congruence* {.pannel-name}
+
 
 There seems to be negligible differences between congruence/incongruity when going from a no-switch trial to a switch trial. However, when looking at the trends for each respective effect, we see things that make sense. Congruent trials, or trials were the task instruction (size or parity) does not matter, should be lower in average response time than incongruity which is what we see. Furthermore, we see that no-switch congruence leads to the shortest response times and switch incongruity (size and task instruction does matter) leads to the longest response times.
 
-### *Cue Stimulus Interval*
+:::
 
-Similarly to the congruence interaction plot, we see that between the short and long CSI's there is little to no interaction effect. HOWEVER we find a suprising result: We see when CSI is long (meaning long preparation), response times are lower on average in both no-switch and switch conditions. This is suprising because longer preparation would induce more cognitive stability (theoretically) and thus lead to a longer switch cost (seen in reaction time) than short CSI. This may be some evidence toward a anti-tradeoff model being represented. 
+::: panel
+
+## *Cue Stimulus Interval* {.pannel-name}
+
+Similarly to the congruence interaction plot, we see that between the short and long CSI's there is little to no interaction effect. HOWEVER we find a suprising result: We see when CSI is long (meaning long preparation), response times are lower on average in both no-switch and switch conditions. This is suprising because longer preparation would induce more cognitive stability (theoretically) and thus lead to a longer switch cost (seen in reaction time) than short CSI. This may be some evidence toward a anti-tradeoff model being represented.
+
+:::
+:::::::
