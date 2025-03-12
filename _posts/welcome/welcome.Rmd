@@ -1,7 +1,7 @@
 ---
-title: "N-1 Interactions by Trial Type and Reaction Time"
+title: "N-1 Interactions by Trial Type and Response Time"
 description: |
-  Four way interactions between my pre-trial variables I am interested in, n-1 CSI and n-1 Congruency by currect reaction time and trial type.     
+  Four way interactions between my pre-trial variables I am interested in, n-1 CSI and n-1 Congruency by currect response time and trial type.     
 author:
   - name: Sophia Angleton 
     url: https://doi.org/10.17605/OSF.IO/4DVGS

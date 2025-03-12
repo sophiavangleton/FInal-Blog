@@ -2,35 +2,35 @@
   {
     "path": "posts/2025-02-19-second-post/",
     "title": "Trial Type, Cue Stimulus Interval, and Response Time",
-    "description": "I want to use an interaction between two catagorical variables, trial type and cue stimulus interval, and plot them by reaction time.",
+    "description": "I want to use an interaction between two catagorical variables, trial type and cue stimulus interval, and plot them by response time.",
     "author": [
       {
         "name": "Sophia Angleton",
         "url": {}
       }
     ],
-    "date": "2025-03-07",
+    "date": "2025-03-11",
     "categories": [],
     "contents": "\r\n\r\n\r\n\r\n\r\nFirst Visualization\r\n\r\n\r\n\r\nSecond Visualization\r\nI want to add an overlay of my individual data points by subject on my violin plots. I also want to remove the redundant legend.\r\n\r\n\r\n\r\nFinal Visualization\r\nAdding in some better visualization the plot colors, sizing, and text.\r\n\r\n\r\n\r\n\r\nInterpretation\r\nVisually, it doesn’t seem like there is much of a change in average reaction time when grouped by trial type (no-switch or switch trial) and cue stimulus interval (short or long preparation before onset of stimulus). Indeed, it seems that through an anova of all these aggregated variables, we see that there is not a significant differences in the pattern of reaction time means in any of these interactions. The biggest difference we do see visually is switch trials and a short CSI- where supposedly when subjects are the most flexible, their reaction times skew longer than in other interactions.\r\n\r\n\r\n\r\n",
     "preview": "posts/2025-02-19-second-post/second-post_files/figure-html5/unnamed-chunk-3-1.png",
-    "last_modified": "2025-03-07T00:03:23-08:00",
+    "last_modified": "2025-03-11T21:26:52-07:00",
     "input_file": {}
   },
   {
     "path": "posts/welcome/",
-    "title": "N-1 Interactions by Trial Type and Reaction Time",
-    "description": "Four way interactions between my pre-trial variables I am interested in, n-1 CSI and n-1 Congruency by currect reaction time and trial type.",
+    "title": "N-1 Interactions by Trial Type and Response Time",
+    "description": "Four way interactions between my pre-trial variables I am interested in, n-1 CSI and n-1 Congruency by currect response time and trial type.",
     "author": [
       {
         "name": "Sophia Angleton",
         "url": "https://doi.org/10.17605/OSF.IO/4DVGS"
       }
     ],
-    "date": "2025-03-07",
+    "date": "2025-03-11",
     "categories": [],
     "contents": "\r\n\r\n\r\n\r\n\r\nFirst Visualization\r\nI want to look at the interaction effect between n-1 CSI level, n-1 congruence, and current reaction time by trial type.\r\n\r\n\r\n\r\nSecond Visualization\r\nI want to change around where my variables go and add geom_smooth().\r\n\r\n\r\n\r\nThird Visualization\r\nI want to add in some custom colors for my color of lines but still keep it grouped by congruence.\r\n\r\n\r\n\r\nFinal Visualization\r\nFinally, I want to make my titles and axis neat and adjust the y-axis coordinates.\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
     "preview": "posts/welcome/welcome_files/figure-html5/unnamed-chunk-3-1.png",
-    "last_modified": "2025-03-07T00:06:16-08:00",
+    "last_modified": "2025-03-11T21:28:15-07:00",
     "input_file": {}
   },
   {

@@ -1,5 +1,5 @@
 ---
-title: "Testing the Notion of a Stability/Flexibility Dilemna"
+title: "Testing the Notion of a Stability/Flexibility Dilemma"
 site: distill::distill_website
 listing: posts
 ---

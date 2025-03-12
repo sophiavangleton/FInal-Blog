@@ -1,7 +1,7 @@
 ---
 title: "Trial Type, Cue Stimulus Interval, and Response Time"
 description: |
-  I want to use an interaction between two catagorical variables, trial type and cue stimulus interval, and plot them by reaction time. 
+  I want to use an interaction between two catagorical variables, trial type and cue stimulus interval, and plot them by response time. 
 author:
   - name: Sophia Angleton
 output:
