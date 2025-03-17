@@ -9,11 +9,21 @@ output:
     self_contained: false
 ---
 
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| What the variables mean:                                                                                                                                                     |
++==============================================================================================================================================================================+
+| -   CSI or cue-stimulus interval: 1 is short (no preparation), 2 is long (yes preparation)                                                                                   |
+|                                                                                                                                                                              |
+| -   Task: 1 is parity (odd or even) , 2 is size (bigger or smaller than 5)                                                                                                   |
+|                                                                                                                                                                              |
+| -   rt: response time                                                                                                                                                        |
+|                                                                                                                                                                              |
+| -   Trial type: 1 = switch trials, or when someone is switching from one task instruction to another, and 0 = no-switch trials, or when someone is doing one task repeatedly |
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
- 
 
 ```{r}
 #| echo: False
@@ -77,11 +87,8 @@ agglag
 
 ```
 
-
-::::: {.panelset}
-
-::: {.panel}
-
+:::::: panelset
+::: panel
 ## First Visualization {.pannel-name}
 
 ```{r}
@@ -99,11 +106,10 @@ plot
 ```
 :::
 
-::: {.panel}
+::: panel
+## Second Visualization {.pannel-name}
 
-## Second Visualization {.pannel-name} 
-
-I want to add an overlay of my individual data points by subject on my violin plots. I also want to remove the redundant legend. 
+I want to add an overlay of my individual data points by subject on my violin plots. I also want to remove the redundant legend.
 
 ```{r}
  
@@ -116,14 +122,12 @@ plot2 <- ggplot(agglag, aes(x = switchcsi, y = rt, fill = switchcsi)) +
   )
 plot2
 ```
-
 :::
 
-::: {.panel}
-
+::: panel
 ## Final Visualization {.panel-name}
 
-Adding in some better visualization the plot colors, sizing, and text. 
+Adding in some better visualization the plot colors, sizing, and text.
 
 ```{r}
 
@@ -138,12 +142,9 @@ finalplot <- ggplot(agglag, aes(x = switchcsi, y = rt, fill = switchcsi)) +
   theme(legend.position = "none")
 finalplot
 ```
-
-
 :::
-
-:::::
+::::::
 
 ## Interpretation
 
-Visually, it doesn't seem like there is much of a change in average reaction time when grouped by trial type (no-switch or switch trial) and cue stimulus interval (short or long preparation before onset of stimulus). Indeed, it seems that through an anova of all these aggregated variables, we see that there is not a significant differences in the pattern of reaction time means in any of these interactions. The biggest difference we do see visually is switch trials and a short CSI- where supposedly when subjects are the most flexible, their reaction times skew longer than in other interactions. 
+Visually, it doesn't seem like there is much of a change in average reaction time when grouped by trial type (no-switch or switch trial) and cue stimulus interval (short or long preparation before onset of stimulus). Indeed, it seems that through an anova of all these aggregated variables, we see that there is not a significant differences in the pattern of reaction time means in any of these interactions. The biggest difference we do see visually is switch trials and a short CSI- where supposedly when subjects are the most flexible, their reaction times skew longer than in other interactions.

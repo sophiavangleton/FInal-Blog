@@ -94,8 +94,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2025-03-06"/>
-  <meta property="article:created" itemprop="dateCreated" content="2025-03-06"/>
+  <meta property="article:published" itemprop="datePublished" content="2025-03-16"/>
+  <meta property="article:created" itemprop="dateCreated" content="2025-03-16"/>
   <meta name="article:author" content="Sophia Angleton"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -113,7 +113,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","output","date"]}},"value":[{"type":"character","attributes":{},"value":["Interaction Plots"]},{"type":"character","attributes":{},"value":["I am looking at the interactions between trial type, switch or no-switch, and two main effect variables, the cue stimulus interval (CSI) of the trial or the congruency of the trial. \n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Sophia Angleton"]}]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["03-06-2025"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","output","date"]}},"value":[{"type":"character","attributes":{},"value":["Interaction Plots"]},{"type":"character","attributes":{},"value":["I am looking at the interactions between trial type, switch or no-switch, and two main effect variables, the cue stimulus interval (CSI) of the trial or the congruency of the trial. \n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Sophia Angleton"]}]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["03-16-2025"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1523,7 +1523,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Interaction Plots","description":"I am looking at the interactions between trial type, switch or no-switch, and two main effect variables, the cue stimulus interval (CSI) of the trial or the congruency of the trial.","authors":[{"author":"Sophia Angleton","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2025-03-06T00:00:00.000-08:00","citationText":"Angleton, 2025"}
+{"title":"Interaction Plots","description":"I am looking at the interactions between trial type, switch or no-switch, and two main effect variables, the cue stimulus interval (CSI) of the trial or the congruency of the trial.","authors":[{"author":"Sophia Angleton","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2025-03-16T00:00:00.000-07:00","citationText":"Angleton, 2025"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1543,17 +1543,38 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="d-byline">
   Sophia Angleton  
   
-<br/>03-06-2025
+<br/>03-16-2025
 </div>
 
 <div class="d-article">
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>What the variables mean:</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><ul>
+<li><p>CSI or cue-stimulus interval: 1 is short (no preparation), 2 is long (yes preparation)</p></li>
+<li><p>Task: 1 is parity (odd or even) , 2 is size (bigger or smaller than 5)</p></li>
+<li><p>rt: response time</p></li>
+<li><p>Trial type 1 = switch trials, or when someone is switching from one task instruction to another, and 0 = no-switch trials, or when someone is doing one task repeatedly</p></li>
+<li><p>In-congruent: where congruent trials would be numbers present in the task itself: 1,3,6,8 where 1,3 left always, 6,8 right always. in-congruent = 0, congruent = 1</p></li>
+</ul></td>
+</tr>
+</tbody>
+</table>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
 <div class="panelset">
 <section id="first-visualization" class="pannel-name panel">
 <h2 class="pannel-name">First Visualization</h2>
-<p>First interaction between trial type and congruence.</p>
+<p>First interaction between trial type and congruence. Where congruent trials would be numbers present: 1,3,6,8 where 1,3 left always, 6,8 right always.</p>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="third-post_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
 </div>
@@ -1574,7 +1595,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </section>
 <section id="final-visualization" class="pannel-name panel">
 <h2 class="pannel-name">Final Visualization</h2>
-<p>I want to customize the titles and axis.</p>
+<p>I want to customize the titles and axis. Where congruent trials would be numbers present: 1,3,6,8 where 1,3 left always, 6,8 right always.</p>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="third-post_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
 </div>

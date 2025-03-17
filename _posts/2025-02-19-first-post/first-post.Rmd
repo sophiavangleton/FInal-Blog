@@ -9,13 +9,23 @@ output:
     self_contained: false
 ---
 
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
-## Trial Type and Response Time
 
-Firstly, I want to look at the interaction effects between switch trials, or when someone is switching from one task instruction to another, and no-switch trials, or when someone is doing one task repeatedly. I am doing this by looking at switch costs, represented through differences in response time. 
+I want to look at the interaction effects between switch trials, or when someone is switching from one task instruction to another, and no-switch trials, or when someone is doing one task repeatedly. I am doing this by looking at switch costs, represented through differences in response time.
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **What the variables mean:**                                                                                                                                                 |
++==============================================================================================================================================================================+
+| -   Task: 1 is parity (odd or even) , 2 is size (bigger or smaller than 5)                                                                                                   |
+|                                                                                                                                                                              |
+| -   rt: response time                                                                                                                                                        |
+|                                                                                                                                                                              |
+| -   Error: 0 = no error, 1 = yes error                                                                                                                                       |
+|                                                                                                                                                                              |
+| -   Trial type: 1 = switch trials, or when someone is switching from one task instruction to another, and 0 = no-switch trials, or when someone is doing one task repeatedly |
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ```{r}
 #| echo: False
@@ -95,10 +105,8 @@ dv = error, wid = id, within = .(lcsi, switch), type = 3, detailed = T)
 anovaer
 ```
 
-::::: {.panelset}
-
-::: {.panel}
-
+:::::: panelset
+::: panel
 ## First Visualization {.pannel-name}
 
 ```{r}
@@ -111,9 +119,8 @@ boxplot
 ```
 :::
 
-::: {.panel}
-
-## By Reaction Time {.pannel-name} 
+::: panel
+## By Reaction Time {.pannel-name}
 
 ```{r}
 
@@ -124,11 +131,9 @@ boxplot2 <- agglag %>%
 boxplot2
 
 ```
-
 :::
 
-::: {.panel}
-
+::: panel
 ## By Error {.panel-name}
 
 Lets look at this by error.
@@ -140,30 +145,21 @@ boxploter <- agglag %>%
   labs(title = "Trial Type On Error Rate", x= "Trial Type", y= "Error Rate", subtitle = "Mean Error Rates by Trial Type")
 boxploter
 ```
-
-
 :::
-
-:::::
+::::::
 
 ## Interpretation
 
-::::: {.panelset}
-
-::: {.panel}
-
+::::: panelset
+::: panel
 ## Trial Type on Reaction Time {.panel-name}
 
 We see that there is a difference in reaction time by trial types, where people tend to have a shorter reaction time in no-switch trials compared to switch trials. However, we see that there are two outliers, meaning that there are two subjects who had an unusually high mean response time in switch trials than others. This may contribute to skewing our switch trial mean response time to be longer than it should be. This is what we expect to see according to previous understanding of trial type and response time.
-
 :::
 
-::: {.panel}
-
+::: panel
 ## Trial Type on Error Rate {.panel-name}
 
 We see that error rate does change from no-switch to switch trials, where no-switch trials seem to lead to lower average error rates by subject, and vice versa for switch trials. We see an outlier in the no-switch trial where one subject had unusually high error rates when completing no-switch trials which may be skewing the plot higher in overall error rate for the no-switch trial type. This is what we expect to see according to previous undersanding of trial type and error rate.
-
 :::
-
 :::::

@@ -68,3 +68,7 @@ Participants will sign an informed consent form given by our lab, then will be i
 **Design** 
 
 In both tasks, size and parity, the instructions for this will be shown above the numerical stimulus in either a short (.0 sec) or long (.5 sec) CSI in which the subjects are not told about this manipulation. This means that when starting a new trial, depending on either the short or long CSI, the cue instructions size or parity are shown .0 or .5 seconds before the stimulus is presented and remain above the stimulus throughout that trial. 
+
+**Main finding** 
+
+We didn't seem to get a significant result that our preparation component was working. Further analysis reveals that our CSI interaction with switch trial is not working very well with low preparation or high preparation subjects. Need to think of a way to induce better preparation in our task and will address this in our next experiment. 

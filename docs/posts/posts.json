@@ -1,39 +1,5 @@
 [
   {
-    "path": "posts/2025-02-19-second-post/",
-    "title": "Trial Type, Cue Stimulus Interval, and Response Time",
-    "description": "I want to use an interaction between two catagorical variables, trial type and cue stimulus interval, and plot them by response time.",
-    "author": [
-      {
-        "name": "Sophia Angleton",
-        "url": {}
-      }
-    ],
-    "date": "2025-03-11",
-    "categories": [],
-    "contents": "\r\n\r\n\r\n\r\n\r\nFirst Visualization\r\n\r\n\r\n\r\nSecond Visualization\r\nI want to add an overlay of my individual data points by subject on my violin plots. I also want to remove the redundant legend.\r\n\r\n\r\n\r\nFinal Visualization\r\nAdding in some better visualization the plot colors, sizing, and text.\r\n\r\n\r\n\r\n\r\nInterpretation\r\nVisually, it doesn’t seem like there is much of a change in average reaction time when grouped by trial type (no-switch or switch trial) and cue stimulus interval (short or long preparation before onset of stimulus). Indeed, it seems that through an anova of all these aggregated variables, we see that there is not a significant differences in the pattern of reaction time means in any of these interactions. The biggest difference we do see visually is switch trials and a short CSI- where supposedly when subjects are the most flexible, their reaction times skew longer than in other interactions.\r\n\r\n\r\n\r\n",
-    "preview": "posts/2025-02-19-second-post/second-post_files/figure-html5/unnamed-chunk-3-1.png",
-    "last_modified": "2025-03-11T21:26:52-07:00",
-    "input_file": {}
-  },
-  {
-    "path": "posts/welcome/",
-    "title": "N-1 Interactions by Trial Type and Response Time",
-    "description": "Four way interactions between my pre-trial variables I am interested in, n-1 CSI and n-1 Congruency by currect response time and trial type.",
-    "author": [
-      {
-        "name": "Sophia Angleton",
-        "url": "https://doi.org/10.17605/OSF.IO/4DVGS"
-      }
-    ],
-    "date": "2025-03-11",
-    "categories": [],
-    "contents": "\r\n\r\n\r\n\r\n\r\nFirst Visualization\r\nI want to look at the interaction effect between n-1 CSI level, n-1 congruence, and current reaction time by trial type.\r\n\r\n\r\n\r\nSecond Visualization\r\nI want to change around where my variables go and add geom_smooth().\r\n\r\n\r\n\r\nThird Visualization\r\nI want to add in some custom colors for my color of lines but still keep it grouped by congruence.\r\n\r\n\r\n\r\nFinal Visualization\r\nFinally, I want to make my titles and axis neat and adjust the y-axis coordinates.\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
-    "preview": "posts/welcome/welcome_files/figure-html5/unnamed-chunk-3-1.png",
-    "last_modified": "2025-03-11T21:28:15-07:00",
-    "input_file": {}
-  },
-  {
     "path": "posts/2025-02-19-first-post/",
     "title": "Trial Type, Response Time and Error Rate",
     "description": "We are interested in trial type, switch or no-switch, and its effect on reaction time and error rate.",
@@ -43,11 +9,28 @@
         "url": {}
       }
     ],
-    "date": "2025-03-06",
+    "date": "2025-03-16",
     "categories": [],
-    "contents": "\r\nTrial Type and Response Time\r\nFirstly, I want to look at the interaction effects between switch trials, or when someone is switching from one task instruction to another, and no-switch trials, or when someone is doing one task repeatedly. I am doing this by looking at switch costs, represented through differences in response time.\r\n\r\n\r\n\r\n\r\nFirst Visualization\r\n\r\n\r\n\r\nBy Reaction Time\r\n\r\n\r\n\r\nBy Error\r\nLets look at this by error.\r\n\r\n\r\n\r\n\r\nInterpretation\r\n\r\nTrial Type on Reaction Time\r\nWe see that there is a difference in reaction time by trial types, where people tend to have a shorter reaction time in no-switch trials compared to switch trials. However, we see that there are two outliers, meaning that there are two subjects who had an unusually high mean response time in switch trials than others. This may contribute to skewing our switch trial mean response time to be longer than it should be. This is what we expect to see according to previous understanding of trial type and response time.\r\nTrial Type on Error Rate\r\nWe see that error rate does change from no-switch to switch trials, where no-switch trials seem to lead to lower average error rates by subject, and vice versa for switch trials. We see an outlier in the no-switch trial where one subject had unusually high error rates when completing no-switch trials which may be skewing the plot higher in overall error rate for the no-switch trial type. This is what we expect to see according to previous undersanding of trial type and error rate.\r\n\r\n\r\n\r\n\r\n",
+    "contents": "\r\nI want to look at the interaction effects between switch trials, or when someone is switching from one task instruction to another, and no-switch trials, or when someone is doing one task repeatedly. I am doing this by looking at switch costs, represented through differences in response time.\r\nWhat the variables mean:\r\nTask: 1 is parity (odd or even) , 2 is size (bigger or smaller than 5)\r\nrt: response time\r\nError: 0 = no error, 1 = yes error\r\nTrial type: 1 = switch trials, or when someone is switching from one task instruction to another, and 0 = no-switch trials, or when someone is doing one task repeatedly\r\n\r\n\r\n\r\n\r\n\r\nFirst Visualization\r\n\r\n\r\n\r\nBy Reaction Time\r\n\r\n\r\n\r\nBy Error\r\nLets look at this by error.\r\n\r\n\r\n\r\n\r\nInterpretation\r\n\r\nTrial Type on Reaction Time\r\nWe see that there is a difference in reaction time by trial types, where people tend to have a shorter reaction time in no-switch trials compared to switch trials. However, we see that there are two outliers, meaning that there are two subjects who had an unusually high mean response time in switch trials than others. This may contribute to skewing our switch trial mean response time to be longer than it should be. This is what we expect to see according to previous understanding of trial type and response time.\r\nTrial Type on Error Rate\r\nWe see that error rate does change from no-switch to switch trials, where no-switch trials seem to lead to lower average error rates by subject, and vice versa for switch trials. We see an outlier in the no-switch trial where one subject had unusually high error rates when completing no-switch trials which may be skewing the plot higher in overall error rate for the no-switch trial type. This is what we expect to see according to previous undersanding of trial type and error rate.\r\n\r\n\r\n\r\n\r\n",
     "preview": "posts/2025-02-19-first-post/first-post_files/figure-html5/unnamed-chunk-3-1.png",
-    "last_modified": "2025-03-06T20:32:35-08:00",
+    "last_modified": "2025-03-16T20:16:10-07:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/2025-02-19-second-post/",
+    "title": "Trial Type, Cue Stimulus Interval, and Response Time",
+    "description": "I want to use an interaction between two catagorical variables, trial type and cue stimulus interval, and plot them by response time.",
+    "author": [
+      {
+        "name": "Sophia Angleton",
+        "url": {}
+      }
+    ],
+    "date": "2025-03-16",
+    "categories": [],
+    "contents": "\r\nWhat the variables mean:\r\nCSI or cue-stimulus interval: 1 is short (no preparation), 2 is long (yes preparation)\r\nTask: 1 is parity (odd or even) , 2 is size (bigger or smaller than 5)\r\nrt: response time\r\nTrial type: 1 = switch trials, or when someone is switching from one task instruction to another, and 0 = no-switch trials, or when someone is doing one task repeatedly\r\n\r\n\r\n\r\n\r\n\r\nFirst Visualization\r\n\r\n\r\n\r\nSecond Visualization\r\nI want to add an overlay of my individual data points by subject on my violin plots. I also want to remove the redundant legend.\r\n\r\n\r\n\r\nFinal Visualization\r\nAdding in some better visualization the plot colors, sizing, and text.\r\n\r\n\r\n\r\n\r\nInterpretation\r\nVisually, it doesn’t seem like there is much of a change in average reaction time when grouped by trial type (no-switch or switch trial) and cue stimulus interval (short or long preparation before onset of stimulus). Indeed, it seems that through an anova of all these aggregated variables, we see that there is not a significant differences in the pattern of reaction time means in any of these interactions. The biggest difference we do see visually is switch trials and a short CSI- where supposedly when subjects are the most flexible, their reaction times skew longer than in other interactions.\r\n\r\n\r\n\r\n",
+    "preview": "posts/2025-02-19-second-post/second-post_files/figure-html5/unnamed-chunk-3-1.png",
+    "last_modified": "2025-03-16T20:16:00-07:00",
     "input_file": {}
   },
   {
@@ -60,11 +43,28 @@
         "url": {}
       }
     ],
-    "date": "2025-03-06",
+    "date": "2025-03-16",
     "categories": [],
-    "contents": "\r\n\r\n\r\n\r\n\r\nFirst Visualization\r\nFirst interaction between trial type and congruence.\r\n\r\n\r\n\r\nSecond Visualization\r\nSecond interaction between trial type and cue stimulus interval (CSI).\r\n\r\n\r\n\r\nThird Visualization\r\nI want to add these two plots together.\r\n\r\n\r\n\r\nFinal Visualization\r\nI want to customize the titles and axis.\r\n\r\n\r\n\r\n\r\nInterpretation\r\n\r\nCongruence\r\nThere seems to be negligible differences between congruence/incongruity when going from a no-switch trial to a switch trial. However, when looking at the trends for each respective effect, we see things that make sense. Congruent trials, or trials were the task instruction (size or parity) does not matter, should be lower in average response time than incongruity which is what we see. Furthermore, we see that no-switch congruence leads to the shortest response times and switch incongruity (size and task instruction does matter) leads to the longest response times.\r\nCue Stimulus Interval\r\nSimilarly to the congruence interaction plot, we see that between the short and long CSI’s there is little to no interaction effect. HOWEVER we find a suprising result: We see when CSI is long (meaning long preparation), response times are lower on average in both no-switch and switch conditions. This is suprising because longer preparation would induce more cognitive stability (theoretically) and thus lead to a longer switch cost (seen in reaction time) than short CSI. This may be some evidence toward a anti-tradeoff model being represented.\r\n\r\n\r\n\r\n\r\n",
+    "contents": "\r\nWhat the variables mean:\r\nCSI or cue-stimulus interval: 1 is short (no preparation), 2 is long (yes preparation)\r\nTask: 1 is parity (odd or even) , 2 is size (bigger or smaller than 5)\r\nrt: response time\r\nTrial type 1 = switch trials, or when someone is switching from one task instruction to another, and 0 = no-switch trials, or when someone is doing one task repeatedly\r\nIn-congruent: where congruent trials would be numbers present in the task itself: 1,3,6,8 where 1,3 left always, 6,8 right always. in-congruent = 0, congruent = 1\r\n\r\n\r\n\r\n\r\n\r\nFirst Visualization\r\nFirst interaction between trial type and congruence. Where congruent trials would be numbers present: 1,3,6,8 where 1,3 left always, 6,8 right always.\r\n\r\n\r\n\r\nSecond Visualization\r\nSecond interaction between trial type and cue stimulus interval (CSI).\r\n\r\n\r\n\r\nThird Visualization\r\nI want to add these two plots together.\r\n\r\n\r\n\r\nFinal Visualization\r\nI want to customize the titles and axis. Where congruent trials would be numbers present: 1,3,6,8 where 1,3 left always, 6,8 right always.\r\n\r\n\r\n\r\n\r\nInterpretation\r\n\r\nCongruence\r\nThere seems to be negligible differences between congruence/incongruity when going from a no-switch trial to a switch trial. However, when looking at the trends for each respective effect, we see things that make sense. Congruent trials, or trials were the task instruction (size or parity) does not matter, should be lower in average response time than incongruity which is what we see. Furthermore, we see that no-switch congruence leads to the shortest response times and switch incongruity (size and task instruction does matter) leads to the longest response times.\r\nCue Stimulus Interval\r\nSimilarly to the congruence interaction plot, we see that between the short and long CSI’s there is little to no interaction effect. HOWEVER we find a suprising result: We see when CSI is long (meaning long preparation), response times are lower on average in both no-switch and switch conditions. This is suprising because longer preparation would induce more cognitive stability (theoretically) and thus lead to a longer switch cost (seen in reaction time) than short CSI. This may be some evidence toward a anti-tradeoff model being represented.\r\n\r\n\r\n\r\n\r\n",
     "preview": "posts/2025-02-19-third-post/third-post_files/figure-html5/unnamed-chunk-3-1.png",
-    "last_modified": "2025-03-06T17:55:46-08:00",
+    "last_modified": "2025-03-16T20:16:18-07:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/welcome/",
+    "title": "N-1 Interactions by Trial Type and Response Time",
+    "description": "Four way interactions between my pre-trial variables I am interested in, n-1 CSI and n-1 Congruency by currect response time and trial type.",
+    "author": [
+      {
+        "name": "Sophia Angleton",
+        "url": "https://doi.org/10.17605/OSF.IO/4DVGS"
+      }
+    ],
+    "date": "2025-03-16",
+    "categories": [],
+    "contents": "\r\nWhat the variables mean:\r\nTask: 1 is parity (odd or even) , 2 is size (bigger or smaller than 5)\r\nrt: response time\r\nTrial type: 1 = switch trials, or when someone is switching from one task instruction to another, and 0 = no-switch trials, or when someone is doing one task repeatedly\r\nlcsi: lag CSI or n-1 CSI. This is pre-switch CSI variable and follows the same rules as our normal CSI, 1 is short (no preparation), 2 is long (yes preparation)\r\nlin-congruent: where congruent trials would be numbers present in the task itself: 1,3,6,8 where 1,3 left always, 6,8 right always. pre-switch or lag in-congruent = 0, lag congruent = 1\r\n\r\n\r\n\r\n\r\n\r\nFirst Visualization\r\nI want to look at the interaction effect between n-1 CSI level, n-1 congruence, and current reaction time by trial type.\r\nWhere congruent trials would be numbers present: 1,3,6,8 where 1,3 left always, 6,8 right always.\r\n\r\n\r\n\r\nSecond Visualization\r\nI want to change around where my variables go and add geom_smooth().\r\n\r\n\r\n\r\nThird Visualization\r\nI want to add in some custom colors for my color of lines but still keep it grouped by congruence.\r\n\r\n\r\n\r\nFinal Visualization\r\nFinally, I want to make my titles and axis neat and adjust the y-axis coordinates. Once again adding that congruent trials would be numbers present: 1,3,6,8 where 1,3 left always, 6,8 right always.\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+    "preview": "posts/welcome/welcome_files/figure-html5/unnamed-chunk-3-1.png",
+    "last_modified": "2025-03-16T20:16:35-07:00",
     "input_file": {}
   }
 ]

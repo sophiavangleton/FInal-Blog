@@ -9,6 +9,20 @@ output:
     self_contained: false
 ---
 
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| What the variables mean:                                                                                                                                                    |
++=============================================================================================================================================================================+
+| -   CSI or cue-stimulus interval: 1 is short (no preparation), 2 is long (yes preparation)                                                                                  |
+|                                                                                                                                                                             |
+| -   Task: 1 is parity (odd or even) , 2 is size (bigger or smaller than 5)                                                                                                  |
+|                                                                                                                                                                             |
+| -   rt: response time                                                                                                                                                       |
+|                                                                                                                                                                             |
+| -   Trial type 1 = switch trials, or when someone is switching from one task instruction to another, and 0 = no-switch trials, or when someone is doing one task repeatedly |
+|                                                                                                                                                                             |
+| -   In-congruent: where congruent trials would be numbers present in the task itself: 1,3,6,8 where 1,3 left always, 6,8 right always. in-congruent = 0, congruent = 1      |
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
@@ -67,7 +81,7 @@ view(prep)
 ::: panel
 ## First Visualization {.pannel-name}
 
-First interaction between trial type and congruence. 
+First interaction between trial type and congruence. Where congruent trials would be numbers present: 1,3,6,8 where 1,3 left always, 6,8 right always.
 
 ```{r}
 # First interaction plot without the automatic trace label and legend
@@ -87,7 +101,7 @@ interaction.plot(x.factor = prep$switch,
 ::: panel
 ## Second Visualization {.pannel-name}
 
-Second interaction between trial type and cue stimulus interval (CSI). 
+Second interaction between trial type and cue stimulus interval (CSI).
 
 ```{r}
 # Second interaction plot without the automatic trace label and legend
@@ -148,7 +162,7 @@ par(mfrow = c(1, 1))
 ::: panel
 ## Final Visualization {.pannel-name}
 
-I want to customize the titles and axis.
+I want to customize the titles and axis. Where congruent trials would be numbers present: 1,3,6,8 where 1,3 left always, 6,8 right always.
 
 ```{r}
 # Set up the plotting area with two plots side by side
@@ -205,21 +219,16 @@ par(mfrow = c(1, 1))
 
 ## Interpretation
 
-::::::: panelset
+::::: panelset
 ::: panel
-
 ## *Congruence* {.pannel-name}
 
-
 There seems to be negligible differences between congruence/incongruity when going from a no-switch trial to a switch trial. However, when looking at the trends for each respective effect, we see things that make sense. Congruent trials, or trials were the task instruction (size or parity) does not matter, should be lower in average response time than incongruity which is what we see. Furthermore, we see that no-switch congruence leads to the shortest response times and switch incongruity (size and task instruction does matter) leads to the longest response times.
-
 :::
 
 ::: panel
-
 ## *Cue Stimulus Interval* {.pannel-name}
 
 Similarly to the congruence interaction plot, we see that between the short and long CSI's there is little to no interaction effect. HOWEVER we find a suprising result: We see when CSI is long (meaning long preparation), response times are lower on average in both no-switch and switch conditions. This is suprising because longer preparation would induce more cognitive stability (theoretically) and thus lead to a longer switch cost (seen in reaction time) than short CSI. This may be some evidence toward a anti-tradeoff model being represented.
-
 :::
-:::::::
+:::::
